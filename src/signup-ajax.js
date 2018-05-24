@@ -81,14 +81,18 @@ function sendData(secureSubscribeUrl, fields = {}) {
  *           it may include a mixed success, or failure, despite a 200 code
  */
 function subscribe(id, emailId, fields, endpoint = cmEndpoint) {
-  return requestToken(id, fields[emailId], endpoint).then(response => {
-    if (response.status !== 200) {
-      return Promise.reject(
-        new Error(`Response ${response.status}: Token endpoint request failed`)
-      )
+  return requestSecureSubscribe(id, fields[emailId], endpoint).then(
+    response => {
+      if (response.status !== 200) {
+        return Promise.reject(
+          new Error(
+            `Response ${response.status}: Token endpoint request failed`
+          )
+        )
+      }
+      return sendData(response.data, fields)
     }
-    return sendData(response.data, fields)
-  })
+  )
 }
 
 export default {

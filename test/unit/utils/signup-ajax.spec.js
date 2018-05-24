@@ -3,7 +3,7 @@ import sinon from 'sinon'
 import qs from 'qs'
 import signupAjax from 'signup-ajax'
 
-console.log(signupAjax);
+console.log(signupAjax)
 
 require('../test-helper.js')
 
@@ -14,7 +14,7 @@ describe('signup-ajax', () => {
   }
 
   describe('requestSecureSubscribe', () => {
-    const id = "RANDOLONGALPHANUMERICSTRING1234567"
+    const id = 'RANDOLONGALPHANUMERICSTRING1234567'
     const email = 'testemail@internet.com'
     const endpoint = 'https://testendpoint.com//t/not-real'
     const config = {
@@ -28,11 +28,7 @@ describe('signup-ajax', () => {
       email
     })
 
-    const expected = [
-      endpoint,
-      data,
-      config
-    ]
+    const expected = [endpoint, data, config]
 
     before(async () => {
       signupAjax.__Rewire__('axios', fakeAxios)
@@ -65,11 +61,7 @@ describe('signup-ajax', () => {
 
     const data = qs.stringify(fields)
 
-    const expected = [
-      secureUrl,
-      data,
-      config
-    ]
+    const expected = [secureUrl, data, config]
 
     before(async () => {
       signupAjax.__Rewire__('axios', fakeAxios)

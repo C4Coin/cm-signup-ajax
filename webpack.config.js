@@ -10,10 +10,7 @@ module.exports = (env, argv = { mode: 'development' }) => {
     context: path.resolve('./src'),
     entry: ['babel-polyfill', './index.js'],
     resolve: {
-      modules: [
-        path.resolve('./src'),
-        path.resolve('./node_modules')
-      ]
+      modules: [path.resolve('./src'), path.resolve('./node_modules')]
     },
     plugins: [
       new webpack.EnvironmentPlugin({
