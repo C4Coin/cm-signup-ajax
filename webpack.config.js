@@ -1,5 +1,6 @@
 // const webpack = require('webpack')
 const path = require('path')
+const webpack = require('webpack')
 
 process.traceDeprecation = true
 
@@ -10,7 +11,7 @@ module.exports = (env, argv = { mode: 'development' }) => {
     entry: ['babel-polyfill', './index.js'],
     resolve: {
       modules: [
-        path.resolve('./web-app'),
+        path.resolve('./src'),
         path.resolve('./node_modules')
       ]
     },

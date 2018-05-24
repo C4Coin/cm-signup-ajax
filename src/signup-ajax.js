@@ -91,7 +91,7 @@ function subscribe(id, emailId, fields, endpoint = cmEndpoint) {
   })
 }
 
-export {
+export default {
   requestSecureSubscribe,
   sendData,
   subscribe
